@@ -30,7 +30,7 @@ public class Main {
                             System.out.println("El empleado fue borrado correctamente");
                             System.out.println();
                         }else {
-                            System.out.println("El contacto no existe en la lista");
+                            System.out.println("El empleado no existe en la lista");
                             System.out.println();
                         }
                         break;
