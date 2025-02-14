@@ -1,5 +1,5 @@
+//Raúl Martínez Parra
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Empleado {
@@ -54,9 +54,9 @@ public class Empleado {
     public String toString() {
         return
                 nombre+" \u2192 "+
-                idEmpleado + " \u2192 "+
-                salario + " \u2192 "+
-                puesto;
+                        idEmpleado + " \u2192 "+
+                        salario + " \u2192 "+
+                        puesto;
 
     }
 
@@ -144,7 +144,12 @@ public class Empleado {
             System.out.println("¿Cuál es el id del empleado?");
             idEmpleado = sc.nextLine();
 
-
+            for (Empleado empleados : Empleados) {
+                if (idEmpleado.equalsIgnoreCase(empleados.idEmpleado)||idEmpleado.equals(empleados.idEmpleado)) {
+                    System.out.println("Error no se pueden añadir empleados con ID's iguales");
+                    esValido=false;
+                }
+            }
             if (idEmpleado.length() != 9) {
                 System.out.println("Error: El idEmpleado debe tener exactamente 9 caracteres");
                 esValido = false;
@@ -172,7 +177,7 @@ public class Empleado {
             }
 
         } while (!esValido);
-    return idEmpleado;
+        return idEmpleado;
 
     }
 
@@ -220,7 +225,7 @@ public class Empleado {
                 System.out.println();
             }
         }while (!esValido);
-    return salario;
+        return salario;
 
     }
 
@@ -235,7 +240,7 @@ public class Empleado {
             if (puesto==null||puesto.isEmpty()) {
                 System.out.println("Error: El puesto no puede estar vacío");
             }
-        if (esValido){
+            if (esValido){
                 System.out.println("Puesto Correcto");
                 System.out.println();
             }
@@ -249,11 +254,6 @@ public class Empleado {
         double salario = validarSalario();
         String puesto = validarPuesto();
 
-        for (Empleado empleado : Empleados) {
-            if (Objects.equals(idEmpleado, empleado.getIdEmpleado())) {
-                return null;
-            }
-        }
         System.out.println("Empleado añadido con éxito:");
         System.out.println("ID: " + idEmpleado);
         System.out.println("Nombre: " + nombre);
@@ -262,5 +262,4 @@ public class Empleado {
         Empleado em=new Empleado(idEmpleado,salario,nombre,puesto);
         return em;
     }
-
 }
