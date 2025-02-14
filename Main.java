@@ -1,10 +1,10 @@
+//Raúl Martínez Parra
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         boolean menu=true;
-        Empleado em=new Empleado("12345678p",123.21,"Pepe","Cocinero");
         Empleado emple=new Empleado();
         Imprimirmenu();
         do {
@@ -23,7 +23,16 @@ public class Main {
                         emple.addNewEmpleado(emple.añadirEmpleado());
                         break;
                     case 2:
-
+                        System.out.println("¿Cuál es el id del empleado que quieres borrar?");
+                        String IdEMpleado= sc.next();
+                        if (emple.Empleados.contains(emple.queryEmpleado(IdEMpleado))) {
+                            emple.removeEmpleado(emple.queryEmpleado(IdEMpleado));
+                            System.out.println("El empleado fue borrado correctamente");
+                            System.out.println();
+                        }else {
+                            System.out.println("El contacto no existe en la lista");
+                            System.out.println();
+                        }
                         break;
                     case 3:
 
