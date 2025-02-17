@@ -35,7 +35,16 @@ public class Main {
                         }
                         break;
                     case 3:
-
+                        System.out.println("¿Cual es el id del Empleado que quieres actualizar?");
+                        String respuesta= sc.next();
+                        System.out.println();
+                        if (emple.Empleados.contains(emple.queryEmpleado(respuesta))){
+                            emple.updateEmpleado(emple.queryEmpleado(respuesta),emple.añadirEmpleado());
+                            System.out.println("Empleado actualizado correctamente");
+                            System.out.println();
+                        }else {
+                            System.out.println("Ese id no está en la lista de empleados");
+                        }
                         break;
                     case 4:
                         emple.printEmpleados();
@@ -46,11 +55,13 @@ public class Main {
 
                     default:
                         System.out.println("Elige una opción válida");
+                        Imprimirmenu();
                         System.out.println();
                 }
             }catch (InputMismatchException e){
                 System.out.println("Elige una opción válida");
-                System.out.println(" ");
+                Imprimirmenu();
+                System.out.println();
                 sc.nextLine();
             }
         }while (menu);
