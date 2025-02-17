@@ -1,5 +1,6 @@
 //Raúl Martínez Parra
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Empleado {
@@ -141,7 +142,7 @@ public class Empleado {
         boolean esValido;
         do {
             esValido = true;
-            System.out.println("¿Cuál es el id del empleado?");
+            System.out.println("¿Cuál es el nuevo id del empleado?");
             idEmpleado = sc.nextLine();
 
             for (Empleado empleados : Empleados) {
@@ -209,24 +210,30 @@ public class Empleado {
 
     public double validarSalario() {
         Scanner sc=new Scanner(System.in);
-        double salario;
+        double salario=0;
         boolean esValido;
         do {
             esValido=true;
             System.out.println("¿Cuál es el salario del Empleado?");
-            salario= sc.nextDouble();
+            try {
+                salario= sc.nextDouble();
 
-            if (salario<0){
-                System.out.println("El salario no puede ser negativo");
+                if (salario<0){
+                    System.out.println("El salario no puede ser negativo");
+                    esValido=false;
+
+                }if (esValido){
+                    System.out.println("Salario Correcto");
+                    System.out.println();
+
+                }
+            }catch (InputMismatchException e){
+                System.out.println("Error: El salario no puede contener letras");
                 esValido=false;
-
-            }if (esValido){
-                System.out.println("Salario Correcto");
-                System.out.println();
+                sc.next();
             }
-        }while (!esValido);
+            }while (!esValido);
         return salario;
-
     }
 
     public String validarPuesto() {
