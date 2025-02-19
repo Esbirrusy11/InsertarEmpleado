@@ -47,19 +47,30 @@ public class Main {
                         }
                         break;
                     case 4:
-                        emple.printEmpleados();
+                        System.out.println("¿Dime el id del empleado que quieres consultar?");
+                        String id= sc.next();
+                        if (emple.Empleados.contains(emple.queryEmpleado(id))) {
+                            System.out.println(emple.queryEmpleado(id));
+                            System.out.println();
+                        }else {
+                            System.out.println("El contacto con ese id no existe");
+                            System.out.println();
+                        }
                         break;
                     case 5:
+                        emple.printEmpleados();
+                        break;
+                    case 6:
                         Imprimirmenu();
                         break;
-
                     default:
                         System.out.println("Elige una opción válida");
                         Imprimirmenu();
+
                         System.out.println();
                 }
             }catch (InputMismatchException e){
-                System.out.println("Elige una opción válida");
+                System.out.println("Error elige una opción válida");
                 Imprimirmenu();
                 System.out.println();
                 sc.nextLine();
@@ -74,6 +85,7 @@ public class Main {
         System.out.println("2.Eliminar un Empleado");
         System.out.println("3.Actualizar un Empleado existente");
         System.out.println("4.Consultar Empleados");
-        System.out.println("5.Imprimir menú");
+        System.out.println("5.Imprimir todos los empleados");
+        System.out.println("6.Imprimir Menú");
     }
 }
