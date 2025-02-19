@@ -71,7 +71,7 @@ public class Empleado {
         }
     }
 
-    private int findEmpleado(String idEmpleado){
+    public int findEmpleado(String idEmpleado){
         if (Empleados.contains(idEmpleado)){
             return 1;
         }else {
@@ -148,11 +148,13 @@ public class Empleado {
             for (Empleado empleados : Empleados) {
                 if (idEmpleado.equalsIgnoreCase(empleados.idEmpleado)||idEmpleado.equals(empleados.idEmpleado)) {
                     System.out.println("Error no se pueden añadir empleados con ID's iguales");
+                    System.out.println();
                     esValido=false;
                 }
             }
             if (idEmpleado.length() != 9) {
                 System.out.println("Error: El idEmpleado debe tener exactamente 9 caracteres");
+                System.out.println();
                 esValido = false;
             } else {
 
@@ -167,7 +169,6 @@ public class Empleado {
                 char letra = idEmpleado.charAt(8);
                 if (!Character.isLetter(letra)) {
                     System.out.println("Error: El último carácter debe ser una letra");
-                    System.out.println();
                     esValido = false;
                 }
             }
@@ -220,6 +221,7 @@ public class Empleado {
 
                 if (salario<0){
                     System.out.println("El salario no puede ser negativo");
+                    System.out.println();
                     esValido=false;
 
                 }if (esValido){
@@ -229,10 +231,11 @@ public class Empleado {
                 }
             }catch (InputMismatchException e){
                 System.out.println("Error: El salario no puede contener letras");
+                System.out.println();
                 esValido=false;
                 sc.next();
             }
-            }while (!esValido);
+        }while (!esValido);
         return salario;
     }
 
