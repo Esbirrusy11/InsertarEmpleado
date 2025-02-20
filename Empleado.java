@@ -246,7 +246,7 @@ public class Empleado {
         do {
             esValido=true;
             System.out.println("¿Cuál es el puesto del Empleado?");
-            puesto= sc.next();
+            puesto= sc.nextLine();
             if (puesto==null||puesto.isEmpty()) {
                 System.out.println("Error: El puesto no puede estar vacío");
             }
@@ -257,7 +257,7 @@ public class Empleado {
         }while (!esValido);
         return puesto;
     }
-    public Empleado añadirEmpleado() {
+    public Empleado anyadirEmpleado() {
 
         String idEmpleado = validarIDEmpleado();
         String nombre = validarNombre();
