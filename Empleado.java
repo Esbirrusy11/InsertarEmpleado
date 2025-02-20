@@ -219,8 +219,8 @@ public class Empleado {
             try {
                 salario= sc.nextDouble();
 
-                if (salario<0){
-                    System.out.println("El salario no puede ser negativo");
+                if (salario<0||salario==0){
+                    System.out.println("El salario no puede ser negativo ni 0.");
                     System.out.println();
                     esValido=false;
 
