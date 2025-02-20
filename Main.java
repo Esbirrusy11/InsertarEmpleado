@@ -20,41 +20,53 @@ public class Main {
                         menu=false;
                         break;
                     case 1:
-                        emple.addNewEmpleado(emple.añadirEmpleado());
+                        emple.addNewEmpleado(emple.anyadirEmpleado());
                         break;
                     case 2:
-                        System.out.println("¿Cuál es el id del empleado que quieres borrar?");
-                        String IdEMpleado= sc.next();
-                        if (emple.Empleados.contains(emple.queryEmpleado(IdEMpleado))) {
-                            emple.removeEmpleado(emple.queryEmpleado(IdEMpleado));
-                            System.out.println("El empleado fue borrado correctamente");
-                            System.out.println();
+                        if (emple.Empleados.isEmpty()){
+                            System.out.println("No hay empleados que se puedan eliminar");
                         }else {
-                            System.out.println("El empleado no existe en la lista");
-                            System.out.println();
+                            System.out.println("¿Cuál es el id del empleado que quieres borrar?");
+                            String IdEMpleado= sc.next();
+                            if (emple.Empleados.contains(emple.queryEmpleado(IdEMpleado))) {
+                                emple.removeEmpleado(emple.queryEmpleado(IdEMpleado));
+                                System.out.println("El empleado fue borrado correctamente");
+                                System.out.println();
+                            }else {
+                                System.out.println("El empleado no existe en la lista");
+                                System.out.println();
+                            }
                         }
                         break;
                     case 3:
-                        System.out.println("¿Cual es el id del Empleado que quieres actualizar?");
-                        String respuesta= sc.next();
-                        System.out.println();
-                        if (emple.Empleados.contains(emple.queryEmpleado(respuesta))){
-                            emple.updateEmpleado(emple.queryEmpleado(respuesta),emple.añadirEmpleado());
-                            System.out.println("Empleado actualizado correctamente");
-                            System.out.println();
+                        if (emple.Empleados.isEmpty()){
+                            System.out.println("No hay empleados que se puedan actualizar");
                         }else {
-                            System.out.println("Ese id no está en la lista de empleados");
+                            System.out.println("¿Cual es el id del Empleado que quieres actualizar?");
+                            String respuesta= sc.next();
+                            System.out.println();
+                            if (emple.Empleados.contains(emple.queryEmpleado(respuesta))){
+                                emple.updateEmpleado(emple.queryEmpleado(respuesta),emple.anyadirEmpleado());
+                                System.out.println("Empleado actualizado correctamente");
+                                System.out.println();
+                            }else {
+                                System.out.println("Ese id no está en la lista de empleados");
+                            }
                         }
                         break;
                     case 4:
-                        System.out.println("¿Dime el id del empleado que quieres consultar?");
-                        String id= sc.next();
-                        if (emple.Empleados.contains(emple.queryEmpleado(id))) {
-                            System.out.println(emple.queryEmpleado(id));
-                            System.out.println();
+                        if (emple.Empleados.isEmpty()){
+                            System.out.println("No hay empleados que se puedan consultar");
                         }else {
-                            System.out.println("El contacto con ese id no existe");
-                            System.out.println();
+                            System.out.println("¿Dime el id del empleado que quieres consultar?");
+                            String id= sc.next();
+                            if (emple.Empleados.contains(emple.queryEmpleado(id))) {
+                                System.out.println(emple.queryEmpleado(id));
+                                System.out.println();
+                            }else {
+                                System.out.println("El contacto con ese id no existe");
+                                System.out.println();
+                            }
                         }
                         break;
                     case 5:
