@@ -249,6 +249,7 @@ public class Empleado {
             puesto= sc.nextLine();
             if (puesto==null||puesto.isEmpty()) {
                 System.out.println("Error: El puesto no puede estar vacío");
+                esValido=false;
             }
             if (esValido){
                 System.out.println("Puesto Correcto");
