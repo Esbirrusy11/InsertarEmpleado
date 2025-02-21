@@ -193,6 +193,11 @@ public class Empleado {
             System.out.println("¿Cuál es el nombre del empleado?");
             nombre = sc.nextLine();
 
+            if (nombre.isEmpty()){
+                System.out.println("El nombre no puede estar vacío");
+                System.out.println();
+                esValido=false;
+            }
             for (char c : nombre.toCharArray()) {
                 if (!Character.isLetter(c) && c != ' ') {
                     System.out.println("Error: El nombre solo puede contener letras y espacios.");
