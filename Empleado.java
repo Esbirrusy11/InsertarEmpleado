@@ -196,6 +196,7 @@ public class Empleado {
             for (char c : nombre.toCharArray()) {
                 if (!Character.isLetter(c) && c != ' ') {
                     System.out.println("Error: El nombre solo puede contener letras y espacios.");
+                    System.out.println();
                     esValido = false;
                     break;
                 }
@@ -249,7 +250,16 @@ public class Empleado {
             puesto= sc.nextLine();
             if (puesto==null||puesto.isEmpty()) {
                 System.out.println("Error: El puesto no puede estar vacío");
+                System.out.println();
                 esValido=false;
+            }
+            for (char c : puesto.toCharArray()) {
+                if (!Character.isLetter(c) && c != ' ') {
+                    System.out.println("Error: El Puesto solo puede contener letras y espacios.");
+                    System.out.println();
+                    esValido = false;
+                    break;
+                }
             }
             if (esValido){
                 System.out.println("Puesto Correcto");
